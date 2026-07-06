@@ -1,0 +1,501 @@
+﻿/* ========================================
+   ========== CSS 变量定义（主题 token）==========
+   ======================================== */
+
+:root {
+    --dm-primary: #409eff;
+    --dm-primary-dark: #2b6cb0;
+    --dm-bg-body: #f0f2f5;
+    --dm-bg-card: #ffffff;
+    --dm-bg-hover: #ecf5ff;
+    --dm-bg-table-header: #f5f7fa;
+    --dm-text-main: #303133;
+    --dm-text-regular: #606266;
+    --dm-text-secondary: #909399;
+    --dm-border: #ebeef5;
+    --dm-border-dashed: #dcdfe6;
+    --dm-shadow-header: 0 2px 8px rgba(64, 158, 255, 0.3);
+    --dm-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --dm-shadow-login: 0 8px 40px rgba(0, 0, 0, 0.2);
+    --dm-scrollbar-track: #f0f2f5;
+    --dm-scrollbar-thumb: #c1c9d6;
+    --dm-scrollbar-thumb-hover: #a8b2c2;
+}
+
+/* ========================================
+   ========== 全局样式重置 ==========
+   ======================================== */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+    height: 100%;
+    font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--dm-bg-body);
+}
+
+/* ========================================
+   ========== App 容器 ==========
+   ======================================== */
+
+.app-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================================
+   ========== 顶部导航栏 ==========
+   ======================================== */
+.app-header {
+    padding: 0 16px;
+    height: 60px !important;
+    display: flex;
+    align-items: center;
+    /* 删掉 justify-content: space-between */
+    flex-shrink: 0;
+    gap: 16px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.header-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1; /* 关键：占据所有剩余空间 */
+    min-width: 0; /* 关键：允许收缩 */
+    overflow: visible;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    margin-left: auto; /* 关键：推到最右侧 */
+}
+
+.header-menu {
+    border-bottom: none !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: 100%;
+    justify-content: center;
+}
+
+    .header-menu.el-menu--horizontal {
+        overflow: visible !important;
+    }
+
+    .header-menu .el-menu-item {
+        height: 60px !important;
+        line-height: 60px !important;
+        font-size: 14px !important;
+        font-weight: 350;
+        border-bottom: 3px solid transparent;
+        padding: 0 14px !important;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+/* ========================================
+   ========== 主内容区 ==========
+   ======================================== */
+
+.app-main {
+    flex: 1;
+    padding: 16px 20px;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+/* ========================================
+   ========== 页面通用样式 ==========
+   ======================================== */
+
+.page {
+    padding: 0;
+}
+
+.page-header {
+    margin-bottom: 12px;
+}
+
+    .page-header h2 {
+        margin: 0;
+        font-size: 18px;
+        color: var(--dm-text-main);
+    }
+
+/* ========================================
+   ========== 登录页面 ==========
+   ======================================== */
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--dm-primary), var(--dm-primary-dark));
+}
+
+.login-box {
+    width: 420px;
+    padding: 40px 36px;
+    background: var(--dm-bg-card);
+    border-radius: 16px;
+    box-shadow: var(--dm-shadow-login);
+}
+
+    .login-box h2 {
+        text-align: center;
+        margin: 0 0 4px;
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--dm-text-main);
+    }
+
+.login-subtitle {
+    text-align: center;
+    color: var(--dm-text-secondary);
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+.login-box .el-form-item {
+    margin-bottom: 20px;
+}
+
+.login-box .el-form-item__label {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.login-box .el-button {
+    width: 100%;
+    margin-top: 8px;
+}
+
+/* ========================================
+   ========== 查询表单组件 ==========
+   ======================================== */
+
+.query-form {
+    padding: 4px 0;
+}
+
+    .query-form .toolbar {
+        margin-bottom: 0;
+    }
+
+/* 调试信息 */
+.debug-info {
+    background: var(--dm-bg-table-header);
+    padding: 4px 12px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--dm-text-regular);
+    border: 1px dashed var(--dm-border-dashed);
+}
+
+/* 紧凑表单项 */
+.compact-item {
+    margin-bottom: 4px;
+}
+
+    .compact-item .el-form-item__label {
+        font-size: 13px;
+        padding-right: 6px;
+        font-weight: 500;
+        min-width: 60px;
+    }
+
+    .compact-item .el-input {
+        --el-input-height: 30px;
+    }
+
+    .compact-item .el-input__wrapper {
+        padding: 0 8px;
+    }
+
+    .compact-item .el-select {
+        width: 100%;
+    }
+
+    .compact-item .el-date-editor {
+        --el-input-height: 30px;
+    }
+
+        .compact-item .el-date-editor .el-input__wrapper {
+            padding: 0 8px;
+        }
+
+/* 按钮行 */
+.btn-col {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 0;
+}
+
+/* 行间距 */
+.query-form .el-row {
+    margin-bottom: 0;
+}
+
+.query-form .el-col {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+/* ========================================
+   ========== 文档表格组件 ==========
+   ======================================== */
+
+.document-table {
+    margin-top: 10px;
+}
+
+    .document-table .el-table {
+        font-size: 13px;
+    }
+
+        .document-table .el-table .cell {
+            padding: 4px 8px;
+        }
+
+        .document-table .el-table th.el-table__cell {
+            padding: 6px 0;
+            background-color: var(--dm-bg-table-header);
+        }
+
+        .document-table .el-table .el-table__row {
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+        }
+
+            .document-table .el-table .el-table__row:hover {
+                background-color: var(--dm-bg-hover);
+            }
+
+/* ========================================
+   ========== 上传页面 ==========
+   ======================================== */
+
+.upload-toolbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 12px 0 16px;
+    padding: 12px 16px;
+    background: var(--dm-bg-card);
+    border-radius: 8px;
+    box-shadow: var(--dm-shadow-card);
+}
+
+    .upload-toolbar .el-upload {
+        display: inline-block;
+    }
+
+.upload-file-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    background: var(--dm-bg-table-header);
+    border-radius: 6px;
+    border: 1px solid var(--dm-border);
+    min-height: 40px;
+}
+
+.file-list-label {
+    font-size: 13px;
+    color: var(--dm-text-regular);
+    margin-right: 8px;
+    font-weight: 500;
+}
+
+.upload-result-table {
+    margin-top: 12px;
+}
+
+    .upload-result-table .el-table .cell {
+        padding: 4px 8px;
+    }
+
+    .upload-result-table .el-table th.el-table__cell {
+        padding: 6px 0;
+        background-color: var(--dm-bg-table-header);
+    }
+
+/* ========================================
+   ========== 统计页面 ==========
+   ======================================== */
+
+.statistics-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    background: var(--dm-bg-card);
+    border-radius: 8px;
+    box-shadow: var(--dm-shadow-card);
+}
+
+.stat-card-wrapper {
+    margin-bottom: 16px;
+    background: var(--dm-bg-card);
+    border-radius: 8px;
+    padding: 12px 16px;
+    box-shadow: var(--dm-shadow-card);
+}
+
+.stat-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dm-text-main);
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--dm-border);
+}
+
+.stat-card-wrapper .el-table {
+    font-size: 13px;
+}
+
+    .stat-card-wrapper .el-table .cell {
+        padding: 4px 8px;
+    }
+
+    .stat-card-wrapper .el-table th.el-table__cell {
+        padding: 6px 0;
+        background-color: var(--dm-bg-table-header);
+    }
+
+/* ========================================
+   ========== 滚动条美化 ==========
+   ======================================== */
+
+.app-main::-webkit-scrollbar,
+.document-table .el-table__body-wrapper::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.app-main::-webkit-scrollbar-track,
+.document-table .el-table__body-wrapper::-webkit-scrollbar-track {
+    background: var(--dm-scrollbar-track);
+}
+
+.app-main::-webkit-scrollbar-thumb,
+.document-table .el-table__body-wrapper::-webkit-scrollbar-thumb {
+    background: var(--dm-scrollbar-thumb);
+    border-radius: 3px;
+}
+
+    .app-main::-webkit-scrollbar-thumb:hover,
+    .document-table .el-table__body-wrapper::-webkit-scrollbar-thumb:hover {
+        background: var(--dm-scrollbar-thumb-hover);
+    }
+
+/* Firefox 滚动条 */
+.app-main,
+.document-table .el-table__body-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: var(--dm-scrollbar-thumb) var(--dm-scrollbar-track);
+}
+
+/* ========================================
+   ========== 响应式适配 ==========
+   ======================================== */
+
+@media (max-width: 768px) {
+    .app-header {
+        padding: 0 12px;
+        height: 50px;
+    }
+
+    .app-title {
+        font-size: 16px;
+    }
+
+    .header-menu .el-menu-item {
+        height: 50px;
+        line-height: 50px;
+        padding: 0 10px;
+        font-size: 13px;
+    }
+
+        /* 菜单文字溢出处理 */
+        .header-menu .el-menu-item .el-icon + span {
+            display: none; /* 小屏隐藏文字，只保留图标 */
+        }
+
+    .app-main {
+        padding: 12px;
+    }
+
+    .login-box {
+        width: 90%;
+        padding: 24px 20px;
+    }
+
+    .query-form .el-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .btn-col {
+        flex-wrap: wrap;
+    }
+
+    .statistics-toolbar,
+    .upload-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+        .upload-toolbar .el-upload,
+        .upload-toolbar .el-button {
+            width: 100%;
+        }
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        width: 92%;
+        padding: 28px 20px;
+    }
+
+        .login-box h2 {
+            font-size: 22px;
+        }
+
+    /* 超小屏进一步压缩菜单 */
+    .header-menu .el-menu-item {
+        padding: 0 6px;
+        font-size: 12px;
+    }
+}
