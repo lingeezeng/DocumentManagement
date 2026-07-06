@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebuggerFlavor>LaunchJsonDebugger</DebuggerFlavor>
+    <LaunchJsonTarget>{
+  "name": "Vue Dev Server",
+  "type": "node",
+  "request": "launch",
+  "cwd": "D:\\Dev\\DocumentManagement\\DocumentManagement.Vue",
+  "runtimeExecutable": "npm",
+  "runtimeArgs": [
+    "run",
+    "dev"
+  ],
+  "console": "integratedTerminal",
+  "serverReadyAction": {
+    "action": "openExternally",
+    "pattern": "Local:.*http://localhost:([0-9]+)",
+    "uriFormat": "http://localhost:%s"
+  }
+}</LaunchJsonTarget>
+  </PropertyGroup>
+</Project>

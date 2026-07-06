@@ -1,3 +1,7 @@
-*
-!src/
-!.gitignore
+,git
+,github
+.vs
+.vscode
+dist
+node_modules
+obj
