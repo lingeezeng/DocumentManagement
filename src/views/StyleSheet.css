@@ -1,2 +1,13 @@
-body {
+/* View-specific overrides to support the visual refresh */
+
+.app-title {
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    color: var(--dm-text-main);
 }
+
+.page-header h2 {
+    display:flex; align-items:center; gap:8px;
+}
+
+/* Keep this file small: add view-level tweaks here if needed */
